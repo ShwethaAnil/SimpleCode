@@ -1,0 +1,43 @@
+<table border="1">
+    <tr>
+        <td>Employee Id</td>
+        <td>{{eid}}</td>
+    </tr>
+    <tr>
+        <td>Employee Name</td>
+        <td>{{ename}}</td>
+    </tr>
+    <tr *ngIf="showDetails">
+        <td>Gender</td>
+        <td>{{gender}}</td>
+    </tr>
+    <tr *ngIf="showDetails">
+        <td>Salary</td>
+        <td>{{salary}}</td>
+    </tr>
+    <tr *ngIf="showDetails">
+        <td>DOB</td>
+        <td>{{dob}}</td>
+    </tr>
+</table>
+
+<button (click)='toggleDetails()'>
+    {{showDetails?'Hide':'Show'}} Details
+</button>
+<!-- <button disabled='{{isDisabled}}'>Click ME</button>
+<button [disabled]="isDisabled">Click ME</button>
+
+<div [innerHtml]='header'>
+
+</div>
+
+<div>
+    {{header}}
+</div>
+
+<br/>
+<input type="text" [value]="ename" (input)="ename=$event.target.value" />
+<input type="text" [(ngModel)]="ename" />
+<br/> {{ename}}
+
+<button (click)="login()">Login</button> -->

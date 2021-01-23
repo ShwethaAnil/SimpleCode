@@ -1,0 +1,30 @@
+<app-employeecount [all]="getTotalEmployeesCount()" [male]="getMaleEmployeesCount()" [female]="getFemaleEmployeesCount()" (countRadioButtonSelectionChanged)="onEmployeeCountRadioButtonChnage($event)"></app-employeecount>
+<br/>
+<br/>
+<table>
+
+    <thead>
+        <tr>
+            <th>EmpId</th>
+            <th>Employee Name</th>
+            <th>Gender</th>
+            <th appRainbow>Salary</th>
+            <th>Dob</th>
+        </tr>
+    </thead>
+    <tbody>
+        <ng-container *ngFor="let e of employees;trackBy:trackByEmpid">
+            <tr *ngIf="selectedEmployeeCountRadioButton === 'All' || selectedEmployeeCountRadioButton === e.gender">
+                <td>{{e.empid}}</td>
+                <td>{{e.ename | uppercase | employeeTitle: e.gender}}</td>
+                <td>{{e.gender}}</td>
+                <td>{{e.salary | currency:'INR'}}</td>
+                <td>{{e.dob | date:'fullDate' | uppercase}}</td>
+            </tr>
+        </ng-container>
+    </tbody>
+</table>
+
+
+<br/>
+<button (click)=" getEmployees() ">Refresh Employees</button>

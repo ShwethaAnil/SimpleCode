@@ -1,0 +1,71 @@
+<form (ngSubmit)="saveEmployee()" #employeeForm="ngForm">
+    <div class="panel panel-primary">
+        <div class="card-header">
+            <h3 class="panel-title">Create Employee</h3>
+        </div>
+        <div class="panel-body">
+            <div class="form-group" [class.has-error]="eid.invalid && eid.touched">
+                <label for="Empid">Employee Id</label>
+                <input type="text" class="form-control" name="empid" [(ngModel)]='employee.empid' required
+                #eid="ngModel" pattern="^[0-9]{3}$"/>
+                <span style="color:red" *ngIf="eid.errors?.required && eid.touched">
+                    Employee Id is Mandatory
+                 </span>
+                 <span style="color:red" *ngIf="eid.errors?.pattern && eid.touched">
+                    Employee Id accepts only Number
+                 </span>
+            </div>
+            <div class="form-group" [class.has-error]="ename.invalid && ename.touched">
+                <label for="empname" class="control-label">Employee Name</label>
+                <input type="text" class="form-control"  name="ename" [(ngModel)]='employee.ename' required pattern="^[A-Za-z]+$" #ename="ngModel"/>
+                <span style="color:red" *ngIf="ename.errors?.required && ename.touched">
+                   Name is Mandatory
+                </span>
+                <span style="color:red" *ngIf="ename.errors?.pattern && ename.touched">
+                    Invalid Name
+                </span>
+            </div>
+            <div class="form-group"  [class.has-error]="gender.invalid">
+                <label>Gender</label>
+                <div class="form-control">
+                    <label class="radio-inline">
+                        <input type="radio" name="gender" value="male" [(ngModel)]='employee.gender' required #gender="ngModel">
+                        Male
+                    </label>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <label class="radio-inline">
+                        <input type="radio" name="gender" value="female" [(ngModel)]='employee.gender' required #gender="ngModel">
+                        Female
+                    </label>
+                   
+                </div>
+                <span style="color:red" *ngIf="gender.invalid">
+                    Gender is Mandatory
+                 </span>
+                </div>
+                <div class="form-group" [class.has-error]="salary.invalid && salary.touched">
+                    <label for="salary">Employee Salary</label>
+                    <input type="text" class="form-control" name="salary" [(ngModel)]='employee.salary' required #salary="ngModel" pattern="^[0-9]{3,8}$"/>
+                    <span style="color:red" *ngIf="salary.errors?.required && salary.touched">
+                        Salary is Mandatory
+                     </span>
+                     <span style="color:red" *ngIf="salary.errors?.pattern && salary.touched">
+                       Salary is Invalid
+                     </span>
+                </div>
+                <div class="form-group" [class.has-error]="dob.invalid && dob.touched">
+                    <label for="Dob">Employee DOB</label>
+                    <input type="date" class="form-control" name="dob" [(ngModel)]='employee.dob' #dob="ngModel" required/>
+                    <span style="color:red" *ngIf="dob.errors?.required && dob.touched">
+                        Dob is Mandatory
+                     </span>
+                    
+                </div>
+
+            
+        </div>  
+        <div class="panel-footer">
+            <button class="btn btn-primary" type="submit">Add Employee</button>
+        </div>  
+    </div>
+</form>

@@ -1,0 +1,31 @@
+.boldClass {
+    font-weight: bold;
+}
+
+.italicsClass {
+    font-style: italic;
+}
+
+.colorClass {
+    color: green;
+}
+/* nav{
+    height:40px;background-color:Gray;    
+}
+ul{
+    list-style-type: none;
+    color: white;
+}
+li{
+    color: white;
+    float: left;
+}
+a:visited{
+    
+    color: white;
+}
+
+a:hover{
+    font-size: 2em;
+    color: white;
+} */
